@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            transition: background 0.3s, color 0.3s;
+        }
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+            transition: background 0.3s, color 0.3s;
+        }
+        .card img {
+
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .card h2, .card h3, .card p {
+            margin: 10px 0;
+        }
+        .social-links a {
+            margin: 5px;
+            text-decoration: none;
+            color: #0073b1;
+        }
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+        .dark-mode .card {
+            background-color: #444;
+            color: #fff;
+        }
+        .dark-mode-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            cursor: pointer;
+            background: #0073b1;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</button>
+    <div class="card">
+        <img src="profile.jpg" alt="Profile Picture" data-testid="profilePicture">
+        <br>
+        <h2 data-testid="fullName">Bangboye Ezekiel Timilehin</h2>
+        <br>
+        <h3 data-testid="jobTitle">Front-end Developer</h3>
+        <br>
+        <p data-testid="shortBio">Passionate Frontend Developer skilled in HTML, CSS, JavaScript, and React.js. Focused on building interactive and accessible web applications with user-friendly experiences. I,Ezekiel received hands-on training at SAIL Innovation Lab. Eager to learn and collaborate, he stays up-to-date with the latest technologies and is committed to contributing to impactful projects in a team-oriented environment.</p>
+        <p data-testid="currentLocation">lagos, Nigeria</p>
+        <p data-testid="emailAddress"><a href="Bamigboyeezekiel764@gmail.com">Bamigboyeezekiel764@gmail.com</p>
+        <div class="social-links" data-testid="socialLinks">
+            <a href="#" target="_blank">LinkedIn</a>
+            <a href="#" target="_blank">GitHub</a>
+            <a href="#" target="_blank">Twitter</a>
+        </div>
+        <p id="utcTime" data-testid="currentTimeUTC"></p>
+    </div>
+    <script>
+        function updateTime() {
+            document.getElementById("utcTime").textContent = "UTC Time: " + new Date().toISOString().slice(11, 19);
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+</body>
+</html>
